@@ -1,4 +1,5 @@
 import React, {useState } from 'react';
+import { Form } from 'react-bootstrap';
 
 type InputProps = {
     className?: string;
@@ -12,7 +13,7 @@ export const ReactInput = (props:InputProps) => {
     
     const handleValue = (e: React.ChangeEvent<HTMLInputElement>): void => {setValue(e.target.value)}
     return(
-    <input className={props.className}
+    <Form.Control className={props.className}
         placeholder={props.placeholder} 
         type={props.type}
         value = {value} 

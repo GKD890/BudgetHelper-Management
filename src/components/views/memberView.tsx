@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import { getMembers } from '../../apis/axios';
-import { Table } from '../table';
+import { ReactTable } from '../table';
 
 const memberHeading = ['Member','Id',"Borrow","Lend"];
 
@@ -20,6 +20,6 @@ export const MemberView = ():ReactElement => {
     },[]);
     
     return(
-        <Table heading ={memberHeading} data={table}  ></Table>
+        <ReactTable heading ={memberHeading} data={table}  />
     )
 }

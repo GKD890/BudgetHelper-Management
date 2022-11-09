@@ -1,10 +1,9 @@
 import React, { ReactElement } from 'react';
-import { JsxElement } from 'typescript';
+import Table from 'react-bootstrap/Table';
 
 type tableProps = {
     heading: Array<any>;
     data: Array<any>;
-    childer?: JsxElement | JsxElement[];
 }
 // TODO: replace to bootstrap
 function dynamic(data:Array<any>) { //data =[ [name,id,borrow,lend] ,[...] ]
@@ -15,10 +14,10 @@ function dynamic(data:Array<any>) { //data =[ [name,id,borrow,lend] ,[...] ]
    return test
 };
 
-export const Table = (props:tableProps):ReactElement => {
+export const ReactTable = (props:tableProps):ReactElement => {
     
     return(
-        <table>
+        <Table striped bordered hover>
             <thead>
                 <tr>
                     {props.heading.map((d,idx) => {return <th> {d}</th>})}
@@ -28,6 +27,6 @@ export const Table = (props:tableProps):ReactElement => {
             <tbody>
                 { props.data.map((d,idx) => {return <tr> {dynamic(d) } </tr> }) }
             </tbody>
-        </table>
+        </Table>
     )
 }
