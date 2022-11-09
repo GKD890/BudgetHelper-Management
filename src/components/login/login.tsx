@@ -21,7 +21,6 @@ export default function LoginTab(props:LoginProps):ReactElement {
                 <label> {props.passwdLabel}
                     <ReactInput placeholder='Password' type='password' / >
                 </label>
-
                 <button type='submit'>Log in</button>
             </form>
         </div>
