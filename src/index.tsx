@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { router } from './routers/MainRouter';
 import { RouterProvider } from "react-router-dom";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

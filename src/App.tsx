@@ -7,8 +7,10 @@ import LoginTab from './components/login/login';
 export default function App() {
   return (
     <div>
-
-      <h1> Welcom to Budget Helper Mangement System</h1>
+      <div className='header'>
+        <h1> Welcom to Budget Helper Mangement System</h1>
+      </div>
+      
 
       <nav>
         <ul>
