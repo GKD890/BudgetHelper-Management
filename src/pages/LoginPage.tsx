@@ -1,9 +1,16 @@
 import LoginTab from "../components/login/login";
+// import s from "./LoginPage.css" ;
+// import "./LoginPage.css";
+import "./LoginPage.css";
 
 export const LoginPage = ():React.ReactElement => {
 
-        return (
-          <LoginTab userLabel='User' passwdLabel='Password' className="mb-3" />
-        );
+  return (
+    <div className="loginTab" >
+    <h2> Choose User </h2>
+      <LoginTab className="form-group"  />
+    </div>
+      
+    );
       
 }

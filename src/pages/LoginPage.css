@@ -1,0 +1,81 @@
+
+/* body {
+    background-color: lightskyblue;
+    opacity: 0.7;
+} */
+
+::-moz-placeholder {
+    color: #CECFD2;
+    opacity: 1;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-size: 16px;
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-color: #242645;
+    color: #fff;
+    font-family: 'Source Sans Pro';
+    background-size: 100%;
+}
+
+.loginTab {
+    float:right;
+    /* width: auto; */
+    margin-right: 10%;
+    border-style: double;
+    border-radius: 2rem;
+    width: 30rem;
+    height: 40rem;
+    border-color: deepskyblue;
+    background-color: #add8e6;
+    padding-top: 12px;
+}
+
+
+.form-group{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    width: 25rem;
+    padding-top: 2px;
+    padding-left: 10px;
+    padding-bottom: 8px;
+    padding-right: 4px;
+
+    border: 2px solid #ffce48;
+    padding: 0.3, 0,0,0 rem ;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    
+    padding:10,5,5,5 px;
+    
+}
+
+.form-group label {
+    font-size: 1.2em;
+    display: block;
+    position:relative;
+}
+
+.loginInput {
+    /* width: 70%; */
+    display: block;
+}
+
+.loginTab h2 {
+    color:rgb(220, 113, 84) ; 
+    margin-top: 4 rem;
+    text-align: center;
+ 
+}
+
+.loginTab button {
+    margin-left: 45%;
+    margin-right: 40%;
+    display: block;
+    margin-top: 4rem;
+}

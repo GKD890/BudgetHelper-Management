@@ -5,8 +5,6 @@ import Form from 'react-bootstrap/Form';
 
 
 type LoginProps = {
-    userLabel: string;
-    passwdLabel: string;
     className?: string;
 }
 export default function LoginTab(props:LoginProps):ReactElement {
@@ -18,22 +16,21 @@ export default function LoginTab(props:LoginProps):ReactElement {
         console.log("loged in");
     }
     return(
-        <Form onSubmit={submitHandler}>
-            <Form.Group className='mb-3' >
-            {/* <Form.Group className={props.className} > */}
-                <Form.Label > {props.userLabel} </Form.Label>
-                    <ReactInput placeholder='User' type='text' / >
+        <Form onSubmit={submitHandler} method='POST'>
+            
+            <Form.Group className={props.className} >
+                <Form.Label className='loginLabel' > Users </Form.Label>
+                    <ReactInput placeholder='User' type='text' className="loginInput" / >
             </Form.Group>   
 
-            <Form.Group className='mb-3' >
-            {/* <Form.Group className={props.className} > */}
-                <Form.Label > {props.passwdLabel} </Form.Label>
-                    <ReactInput placeholder='Password' type='password' / >
-                
+            <p id='divi'></p>
+            <Form.Group className={props.className} >
+                <Form.Label className='loginLabel' > Password </Form.Label>
+                    <ReactInput placeholder='Password' type='password' className="loginInput" / >
             </Form.Group> 
 
             <Form.Group>
-            <Button variant="outline-primary" type="submit">
+            <Button className='loginButtion' variant="outline-primary" type="submit">
                 Login
             </Button>
             
