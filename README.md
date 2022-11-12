@@ -12,7 +12,8 @@ see [discord bot - Budget Helper](https://github.com/GKD890/Budget-Helper) for h
 
 Once you have start the script, it will be avaialbe at [http://localhost:3000](http://localhost:3000), open it in your browser.
 
-[https://github.com/GKD890/BudgetHelper-Management/blob/main/public/logo512.png]
+
+![login](public/login.jpg)
 
 ### see recrods realte to users
 
