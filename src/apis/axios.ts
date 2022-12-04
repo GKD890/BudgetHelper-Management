@@ -19,53 +19,69 @@ export type Record = {
     description: string;
 }
 
-export type MemberList = {
-    members:Member[];
-}
-
 export const getMembers = async () =>{ 
-    try{
-        const {data, status} = await axios.get<Member[]>(
-            memberUrl,{
-                headers: {
-                    Accept: 'application/json'
-                }
-            }
-        );
-        // console.log(`Status: ${status} \n member GET: ${JSON.stringify(data)}`)
-        return data;
+    // try{
+    //     const {data, status} = await axios.get<Member[]>(
+    //         memberUrl,{
+    //             headers: {
+    //                 Accept: 'application/json'
+    //             }
+    //         }
+    //     );
+    //     // console.log(`Status: ${status} \n member GET: ${JSON.stringify(data)}`)
+    //     // return JSON.stringify(data);
+    //     return data;
 
-    } catch(error) {
-        if (axios.isAxiosError(error)) {
-            console.log('error message: ', error.message);
-            // return error.message;
-          } else {
-            console.log('unexpected error: ', error);
-            // return 'unexpected error !';
-          }
-    } 
+    // } catch(error) {
+    //     if (axios.isAxiosError(error)) {
+    //         console.log('error message: ', error.message);
+    //         // return error.message;
+    //       } else {
+    //         console.log('unexpected error: ', error);
+    //         // return 'unexpected error !';
+    //       }
+    // } 
+    const {data, status} = await axios.get<Member[]>(
+                memberUrl,{
+                    headers: {
+                        Accept: 'application/json'
+                    }
+                }
+            );
+            // console.log(`Status: ${status} \n member GET: ${JSON.stringify(data)}`)
+            // return JSON.stringify(data);
+            return data;
 } 
 
 export const getRecords = async () =>{ 
-    try{
-        const {data, status} = await axios.get<MemberList>(
-            recordUrl,{
-                headers: {
-                    Accept: 'application/json'
-                }
-            }
-        );
-        // console.log(`Status: ${status} \n member GET: ${JSON.stringify(data)}`)
-        return data
+    // try{
+    //     const {data, status} = await axios.get<Record[]>(
+    //         recordUrl,{
+    //             headers: {
+    //                 Accept: 'application/json'
+    //             }
+    //         }
+    //     );
+    //     // console.log(`Status: ${status} \n member GET: ${JSON.stringify(data)}`)
+    //     return data
 
-    } catch(error) {
-        if (axios.isAxiosError(error)) {
-            console.log('error message: ', error.message);
-            return error.message;
-          } else {
-            console.log('unexpected error: ', error);
-            return 'unexpected error !';
-          }
-    }
+    // } catch(error) {
+    //     if (axios.isAxiosError(error)) {
+    //         console.log('error message: ', error.message);
+            
+    //       } else {
+    //         console.log('unexpected error: ', error);
+        
+    //       }
+    // }
+    const {data, status} = await axios.get<Record[]>(
+        recordUrl,{
+            headers: {
+                Accept: 'application/json'
+            }
+        }
+    );
+    // console.log(`Status: ${status} \n member GET: ${JSON.stringify(data)}`)
+    return data
    
 }

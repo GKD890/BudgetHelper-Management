@@ -13,16 +13,16 @@ export const router = createBrowserRouter([
         // loader: ,
         // children pages
         children:[
-            {
-                path:"/login/",
-                element: <LoginPage></LoginPage>,
-                errorElement:<ErrorPage />,
-            },
+            
             {
                 path:"/member/",
                 element: <MemberPage></MemberPage>,
                 errorElement:<ErrorPage />,
             }
         ]
-    }
+    },{
+        path:"/login/",
+        element: <LoginPage></LoginPage>,
+        errorElement:<ErrorPage />,
+    },
 ])
