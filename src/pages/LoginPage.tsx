@@ -1,4 +1,6 @@
+import { Container } from "react-bootstrap";
 import LoginTab from "../components/login/login";
+import { INavbar } from "../components/navbat";
 // import s from "./LoginPage.css" ;
 // import "./LoginPage.css";
 import "./LoginPage.css";
@@ -6,10 +8,12 @@ import "./LoginPage.css";
 export const LoginPage = ():React.ReactElement => {
 
   return (
-    <div className="loginTab" >
-    <h2> Choose User </h2>
-      <LoginTab className="form-group"  />
-    </div>
+    <>
+      <INavbar />
+      <Container >
+        <LoginTab className="form-group"  />
+      </Container>
+    </>
       
     );
       
