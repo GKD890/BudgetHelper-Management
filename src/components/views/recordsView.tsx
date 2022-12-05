@@ -1,6 +1,6 @@
 import React from 'react';
-import { getRecords, Record } from '../../apis/axios';
-import { convNull } from '../../apis/format';
+import { getRecords, Record } from '../../utils/axios';
+import { convNull } from '../../utils/format';
 import { useGetData } from '../../hooks/useGetData';
 import DynamicTable from './dynamicTable';
 

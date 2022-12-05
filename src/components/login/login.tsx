@@ -2,6 +2,8 @@ import React, { ReactElement, useState } from 'react';
 import { ReactInput } from '../input';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { getMembers, Member } from '../../utils/axios';
+import { useGetData } from '../../hooks/useGetData';
 
 
 type LoginProps = {
@@ -9,6 +11,7 @@ type LoginProps = {
 }
 export default function LoginTab(props:LoginProps):ReactElement {
     const [click, setClick] = useState("unclick");
+    const {data,isLoading} = useGetData<Member>(getMembers());
 
     const submitHandler = (e:React.FormEvent) =>{
         e.preventDefault();
@@ -20,7 +23,16 @@ export default function LoginTab(props:LoginProps):ReactElement {
             
             <Form.Group className={props.className} >
                 <Form.Label className='loginLabel' > Users </Form.Label>
-                    <ReactInput placeholder='User' type='text' className="loginInput" / >
+                    {/* <ReactInput placeholder='User' type='text' className="loginInput" / > */}
+                    <Form.Select >
+                        <option> Choose User</option>
+                        {data? data.map((n,idx)=>{
+                            return(
+                                <option key={idx}>{n.name}</option>
+                            )
+                        }) : <option>Loading Users</option>
+                        }
+                    </Form.Select>
             </Form.Group>   
 
             <p id='divi'></p>

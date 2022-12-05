@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import { INavbar } from "../components/navbat";
+import { INavbar } from "../components/navbar";
 import { RecordView } from "../components/views/recordsView";
 
 export const RecordPage = ():React.ReactElement => {
@@ -7,7 +7,7 @@ export const RecordPage = ():React.ReactElement => {
     return (
         <>
             <INavbar />
-            <Container>
+            <Container className="w-75">
                 <RecordView />
             </Container>
         </>

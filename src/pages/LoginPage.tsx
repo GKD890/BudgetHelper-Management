@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import LoginTab from "../components/login/login";
-import { INavbar } from "../components/navbat";
+import { INavbar } from "../components/navbar";
 // import s from "./LoginPage.css" ;
 // import "./LoginPage.css";
 import "./LoginPage.css";
