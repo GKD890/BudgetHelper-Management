@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getRecords, Record } from '../../utils/axios';
 import { convNull } from '../../utils/format';
 import { useGetData } from '../../hooks/useGetData';
@@ -29,6 +29,7 @@ const header = ["person",
 export const RecordView = ():React.ReactElement => {
     
     const {data,isLoading} = useGetData<Record>(getRecords());
+    const [isEditing, setIsEditing] = useState(false)
     // console.log(`state data: ${data}`)
     if(!isLoading && data){
 

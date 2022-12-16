@@ -85,3 +85,20 @@ export const getRecords = async () =>{
     return data
    
 }
+
+export async function postInfo(url:string, postObject:any){
+    try{
+        const {data,status} = await axios.post(url,{
+            ...postObject,
+        },{
+            headers: {
+                // Accept: 'application/json',
+                'Content-Type':'multipart/form-data'
+                // 'Content-Type':"application/x-www-form-urlencoded"
+            }
+        });
+        console.log(`from axios post ${postObject}`)
+        return data;
+    } catch(error){ console.log(error)}
+
+}
