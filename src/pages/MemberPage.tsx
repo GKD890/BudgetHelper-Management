@@ -1,14 +1,16 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
+import { INavbar } from '../components/navbar';
 import { MemberView } from '../components/views/memberView';
-import { RecordView } from '../components/views/recordsView';
-
 
 export const MemberPage = ():React.ReactElement => {
 
     return (
         <>
-            <MemberView />
-            <RecordView />
+            <INavbar />
+            <Container>
+                <MemberView />
+            </Container>         
         </>
         
     );

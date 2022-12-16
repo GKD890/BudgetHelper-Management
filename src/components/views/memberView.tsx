@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { getMembers, Member } from '../../apis/axios';
+import { getMembers, Member } from '../../utils/axios';
 import { useGetData } from '../../hooks/useGetData';
 import DynamicTable from './dynamicTable';
 
@@ -10,9 +10,7 @@ export const MemberView = ():ReactElement => {
     const {data,isLoading} = useGetData<Member>(getMembers());
     // console.log(`state data: ${data}`)
     if(!isLoading && data){
-        // const curD = JSON.parse(JSON.stringify(data));
-        // const curD = String(data)
-        // console.log(curD)
+
         return(
             // <ReactTable heading ={memberHeading} data={table}  />
             <>

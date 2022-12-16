@@ -7,13 +7,17 @@ import { router } from './routers/MainRouter';
 import { RouterProvider } from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { UserStateProvider } from './context/auth';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <UserStateProvider >
     <RouterProvider router={router} />
+    </UserStateProvider>
+    
   </React.StrictMode>
 );
 
