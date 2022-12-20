@@ -1,9 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import { Outlet, Link } from "react-router-dom";
 
 import './App.css';
-import LoginTab from './components/login/login';
 import { INavbar } from './components/navbar';
 
 export default function App() {

@@ -28,7 +28,7 @@ const header = ["person",
 
 export const RecordView = ():React.ReactElement => {
     
-    const {data,isLoading} = useGetData<Record>(getRecords());
+    const {data,isLoading} = useGetData<Record>(getRecords(),"record");
     const [isEditing, setIsEditing] = useState(false)
     // console.log(`state data: ${data}`)
     if(!isLoading && data){

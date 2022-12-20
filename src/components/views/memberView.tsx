@@ -7,7 +7,7 @@ const memberHeading = ['Member','Id',"Borrow","Lend"];
 
 
 export const MemberView = ():ReactElement => {
-    const {data,isLoading} = useGetData<Member>(getMembers());
+    const {data,isLoading} = useGetData<Member>(getMembers(),"member");
     // console.log(`state data: ${data}`)
     if(!isLoading && data){
 

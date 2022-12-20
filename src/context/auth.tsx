@@ -1,10 +1,11 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { redirect, useNavigate } from "react-router-dom";
 
 type UserStateProviderProps = {
     children:ReactNode;
 }
 
-interface UserInfo {
+export interface UserInfo {
     name:string;
     avatar:string;
     id: number;
@@ -30,28 +31,41 @@ export function UserStateProvider({children}:UserStateProviderProps) {
         id:-1,
         // authState:false
     })
+    // const nav = useNavigate();
     // const [name, setName] = useState("");
     // const [id, setId] = useState(-1);
     // const [avatar, setAvatar] = useState("");
 
+    // useEffect(()=>{
+    //     console.log('nav')
+    //     if(authState){return nav("/record/") }
+    //     // else {return nav("/")};
+    // },[authState, nav])
+
     const logOut = () => {
+
         setAuthState(false);
+        console.log(`auth satate :${authState} @auth`)
         setUserInfo({
             name:"",
             avatar:"",
             id:-1,
-            // authState:false,
         })
+
     }
+    
 
     const logIn = (user:UserInfo) =>{
-        setUserInfo({
-           name:user.name,
-           id:user.id,
-           avatar:user.avatar,
-        //    authState: user.authState,
-        });
-        setAuthState(true);
+        if (sessionStorage.getItem("isAuthenticated") === "false"){
+            setUserInfo({
+            name:user.name,
+            id:user.id,
+            avatar:user.avatar,
+            });
+            setAuthState(true);
+            console.log(`authState: ${authState} \n user: ${userInfo.name} avatar: ${userInfo.avatar}`)
+        }
+        else{console.log("server detected a login user")}
     }
 
     return(

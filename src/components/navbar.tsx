@@ -1,40 +1,39 @@
 import axios from "axios";
-import { useState } from "react";
-import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { Button, Container, Nav, Navbar, NavDropdown, NavItem } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/auth";
 import gitIcon from "../media/GitHub-Mark-64px.png"
+import { logoutUrl } from "../utils/constants";
 import { IconBell, IconGitHub } from "./icons/icon";
 
 
 export function INavbar(){
     const [messageClick, setMessageClick] = useState(false);
+    const nav = useNavigate();
     const {
         name,
         avatar,
-        authState,} = useUser();
+        authState,
+        logOut} = useUser();
 
-    const clickMessage = () =>{
-        setMessageClick(!messageClick);
-        return( // TODO
-            <>
-            <span> temp message</span> 
-            </>
-        )
-    }
+    const clickMessage = () =>{setMessageClick(!messageClick);}
 
     const logoutEvent = async (e:React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault();
         try{
-            const {data,status} = await axios.post("http://192.168.0.189:8000/logout/",{
+            const {data,status} = await axios.post(logoutUrl,{
                 headers: {
                     "Access-Control-Allow-Origin": "*",                  
                 }
             }
             );
-            console.log(`logout user ${data} and ${status}`)
+            console.log(`${status}: logout user ${data} `)
+            logOut();
             return data;
         } catch(error){ console.log(error)}
-    
+        
+        // nav("/");
     }
     return(
         <Navbar sticky="top" className="bg-white shadow-sm mb-5"  >
@@ -45,6 +44,7 @@ export function INavbar(){
                     </Nav.Link>
 
                     <NavDropdown title="Server List">
+                        {}
                         <NavDropdown.Item> Current Server </NavDropdown.Item>
                     </NavDropdown>
                     
@@ -56,8 +56,21 @@ export function INavbar(){
                     {authState?
                     (
                         <>
-                            <div>{name}</div>
-                            <Button>{IconBell("2rem","2rem")}</Button>
+                        <NavDropdown title={name}>
+                            <Nav.Item>
+                                
+                                    <form onSubmit={logoutEvent}>
+                                        <Button className='sm-loginButtion' variant="outline-danger" type="submit" >
+                                            Logout
+                                        </Button>
+                                    </form>
+                                
+                            </Nav.Item>
+                            
+                              
+                        </NavDropdown>
+                        <Button onClick={clickMessage}>{IconBell("1.5rem","1.5rem")}</Button>
+                        {messageClick? <p> temp message</p> : null}
                         </>
                     ) 
                     : <Nav.Link href="/login"  style={{position:"relative"}} > 
@@ -70,11 +83,7 @@ export function INavbar(){
                     <Nav.Link href="https://github.com/GKD890/BudgetHelper-Management"  style={{position:"relative"}}>
                         {IconGitHub("2rem","2rem")}
                     </Nav.Link>
-                    <form onSubmit={logoutEvent}>
-                    <Button className='loginButtion' variant="outline-danger" type="submit" >
-                        Logout
-                    </Button>
-                    </form>    
+                      
                     
                 </Nav>
             </Container>

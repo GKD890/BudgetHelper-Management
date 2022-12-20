@@ -1,5 +1,5 @@
 import axios from "axios";
-import { memberUrl, recordUrl } from "./constants";
+import { memberUrl, recordUrl, serverUrl } from "./constants";
 
 export type Member = {
     name: string;
@@ -98,7 +98,21 @@ export async function postInfo(url:string, postObject:any){
             }
         });
         console.log(`from axios post ${postObject}`)
-        return data;
+        return {status,data};
+    } catch(error){ console.log(error)}
+}
+
+export async function getServer(){
+    try{
+        const {data, status} = await axios.get(
+            serverUrl,{
+                headers: {
+                    Accept: 'application/json'
+                }
+            }
+        );
+        // console.log(`Status: ${status} \n member GET: ${JSON.stringify(data)}`)
+        return data
     } catch(error){ console.log(error)}
 
 }
