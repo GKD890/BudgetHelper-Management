@@ -3,6 +3,7 @@ import { Form } from 'react-bootstrap';
 
 type InputProps = {
     className?: string;
+    size? : number;
     placeholder: string;
     type: string;
     maxLength?: number;
@@ -17,6 +18,7 @@ export const ReactInput = (props:InputProps) => {
         placeholder={props.placeholder} 
         type={props.type}
         value = {value} 
+        htmlSize = {props.size}
         onChange={handleValue} />
     )
 }

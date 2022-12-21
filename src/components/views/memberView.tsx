@@ -1,25 +1,36 @@
-import React, { ReactElement, useEffect, useState } from 'react';
-import { getMembers } from '../../apis/axios';
-import { ReactTable } from '../table';
+import React, { ReactElement } from 'react';
+import { getMembers, Member } from '../../utils/axios';
+import { useGetData } from '../../hooks/useGetData';
+import DynamicTable from './dynamicTable';
 
 const memberHeading = ['Member','Id',"Borrow","Lend"];
 
+
 export const MemberView = ():ReactElement => {
-    const [table,setTable] = useState(Array<any>);
+    const {data,isLoading} = useGetData<Member>(getMembers(),"member");
+    // console.log(`state data: ${data}`)
+    if(!isLoading && data){
+
+        return(
+            // <ReactTable heading ={memberHeading} data={table}  />
+            <>
+                <DynamicTable  header={memberHeading}>
+                    {data.map((n,idx) =>{ 
+                        let tempJSX = [];
+                        let values = Object.values(n)
+                        for( let idx = 0;idx <values.length;idx++ ){
+                                tempJSX.push(
+                                    <td key={idx}>{values[idx]}</td>
+                                )
+                        }
+                        return <tr key={idx}> {tempJSX} </tr>;
+                    })
+                    
+                    }
+                </DynamicTable>
+            
+            </>
+        )
+    } else {return <span> Loading Data</span>}
     
-    useEffect(() =>{
-        const memberList = getMembers();
-        memberList.then((res)=>{
-            if (res){
-                const test = res.map((n) =>{
-                    return [n.name, n.id,n.borrow,n.lend]
-                })
-                setTable(test);
-            }
-        })  
-    },[]);
-    
-    return(
-        <ReactTable heading ={memberHeading} data={table}  />
-    )
 }

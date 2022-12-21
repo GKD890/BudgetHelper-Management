@@ -1,0 +1,11 @@
+{
+    "userList":[
+        {"name":"User A","id":"518213","borrow":4.0,"lend":2309.4},
+        {"name":"User B","id":"830347","borrow":0.0,"lend":0.0},
+        {"name":"User_C","id":"982154","borrow":0.0,"lend":0.0},
+        {"name":"Vistor A","id":"101895","borrow":0.0,"lend":129.3},
+        {"name":"User_D","id":"101924","borrow":29.34,"lend":0.0},
+        {"name":"User_bot","id":"101943","borrow":0.0,"lend":0.0}
+    ]
+
+}

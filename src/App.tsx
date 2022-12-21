@@ -1,27 +1,20 @@
 import React from 'react';
-import { Outlet, Link } from "react-router-dom";
+import { Container } from 'react-bootstrap';
 
 import './App.css';
-import LoginTab from './components/login/login';
+import { INavbar } from './components/navbar';
 
 export default function App() {
   return (
-    <div>
-
-      <h1> Welcom to Budget Helper Mangement System</h1>
-
-      <nav>
-        <ul>
-          <li>
-            <Link to={'/login'}> Login Page
-              
-            </Link>
-            <Outlet />
-          </li>
-        </ul>
-      </nav>
-
-    </div>
+    <>
+      <INavbar />
+      <Container className='mb-4 w-100'>
+      <div className='header'>
+        <h1> Welcom to Budget Helper Mangement System</h1>
+      </div>
+ 
+      </Container>
+    </>
   );
 }
 
